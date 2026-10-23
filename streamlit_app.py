@@ -10,8 +10,8 @@ st.write(
   """
 )
 
-name_of_order = st.text_input("Name on Smoothie")
-st.write("The name on your smoothie will be", name_of_order)
+name_on_order = st.text_input("Name on Smoothie")
+st.write("The name on your smoothie will be", name_on_order)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
@@ -45,8 +45,8 @@ if ingredients_list:
         
     #st.write(ingredients_string)
 
-    my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_of_order)
-                    values ('""" + ingredients_string + """','"""+name_of_order+"""')"""
+    my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
+                    values ('""" + ingredients_string + """','"""+name_on_order+"""')"""
 
     # st.write(my_insert_stmt)
     # st.stop()
@@ -55,7 +55,7 @@ if ingredients_list:
 
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
-        st.success('Your Smoothie is ordered, ' +name_of_order+ '!', icon="✅")
+        st.success('Your Smoothie is ordered, ' +name_on_order+ '!', icon="✅")
 
 
 
