@@ -1,4 +1,2 @@
 streamlit
-pandas
-snowflake-connector-python
-plotly
+snowflake-snowpark-python
